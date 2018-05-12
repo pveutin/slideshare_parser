@@ -1,3 +1,7 @@
+# Utilisation
+
+`python slideshare_parser.py --url=url_du_diaporama_slideshare_a_recuperer`
+
 # Le principe
 
 1. Récupérer l'URL du diaporama souhaité
