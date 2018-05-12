@@ -1,11 +1,13 @@
+# Le principe
+
 1. Récupérer l'URL du diaporama souhaité
 
 	Exemple : `https://fr.slideshare.net/ctin/windows-7-forensics-overviewr3`
 
-2. Récupérer l'URL (href) du JSON décrivant la structure des diapositives. Le titre du lien est "Slideshow json oEmbed Profile".
+2. Dans la source de la page, on récupére l'URL (href) du JSON décrivant la structure des diapositives. Le titre du lien est "Slideshow json oEmbed Profile".
     Exemple : `<link title="Slideshow json oEmbed Profile" type="application/json+oembed" href="https://fr.slideshare.net/api/oembed/2?format=json&amp;url=http://www.slideshare.net/ctin/windows-7-forensics-overviewr3" rel="alternate">`
 
-3. Récupérer le JSON : 
+3. On peut ensuite récupérer le JSON : 
     Exemple de contenu :
 ```
 {
@@ -37,7 +39,22 @@
   - `slide_image_baseurl_suffix` : le suffixe de l'URL qui donne la dimension et le format des diapos
   - `total_slides` : le nombre total de diapositives
 
- 5. Peut récupérer les slides (au format JPEG) en construisant les URL de la manière suivante :
+ 5. Il est maintenant possible de récupérer les slides (au format JPEG) en construisant les URLs de la manière suivante :
    - https:`slide_image_baseurl` `slide_number` `slide_image_baseurl_suffix`
    - Exemple d'URL : `https://image.slidesharecdn.com/windows7forensics-overview-r3-110606165431-phpapp02/95/slide-1-1024.jpg`
+   
+   
+-------
+   
+# Automatisation
+Il est possible de tout automatiser comme cela est fait dans le script suivant : 
+- [slideshare_parser.py](slideshare_parser.py)
 
+# Dépendances
+Le script a les dépendances suivantes :
+- Python 2.7
+- bibliothèques python :
+	- PIL (pip install Pillow)
+	- reportlab (https://bitbucket.org/rptlab/reportlab)
+	- BeautifulSoup 4 (pip install bs4)
+	- requests (pip install requests)
