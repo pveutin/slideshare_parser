@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding : utf-8
+# coding: utf-8
 __author__ = "Rooxy"
 __copyright__ = "Copyright 2018, Rooxy"
 __license__ = "GPL v3"
